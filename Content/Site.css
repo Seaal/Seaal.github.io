@@ -1,0 +1,144 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.mentor-card {
+    display: inline-block;
+    width: 495px;
+    border-color: #333;
+    background-color: #222;
+    color: #9d9d9d;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+    
+    .mentor-card:hover {
+        border-color: #555;
+        background-color: #444;
+    }
+
+    .mentor-card label {
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .mentor-card > .panel-body > div > h2 {
+        margin-left: 5px;
+        margin-top: 0;
+        text-align: left;
+        display: inline-block;
+    }
+
+    .mentor-card > .panel-body .information-right {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: top;
+    }
+
+    .mentor-card ul {
+        list-style: none;
+        padding-left: 0;
+        display: inline-block;
+        margin-bottom: 0;
+    }
+
+        .mentor-card ul > li {
+            display: inline-block;
+            border: 1px solid #222;
+            border-radius: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: black;
+            color: #9d9d9d;
+            padding: 2px 4px;
+        }
+
+        .mentor-card ul > li:last-child {
+        margin-right: 0;
+    }
+
+.image-group {
+    display: block !important;
+    width: 195px;
+}
+
+    .image-group > li {
+        padding: 0 !important;
+    }
+
+.image-rank {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+    .image-rank img {
+        display: block;
+    }
+
+    .image-rank span {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+.rating-block {
+    display: inline-block;
+    color: #fde16d;
+}
+
+.rating-star {
+    margin-right: 2px;
+}
+
+.image-profile {
+    float: left;
+}
+
+.image-large {
+    width: 128px;
+    height: 128px;
+}
+
+.image-medium {
+    width: 64px;
+    height: 64px;
+}
+
+.image-small {
+    width: 32px;
+    height: 32px;
+}
+
+.image-extra-small {
+    width: 16px;
+    height: 16px;
+}
+
+.hidden-submit {
+    position: absolute;
+    left: -99999px;
+}
