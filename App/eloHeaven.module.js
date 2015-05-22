@@ -3,7 +3,9 @@
 
     angular
         .module("eloHeaven", [
-            "seaal"
+            "seaal",
+            "ngAnimate",
+            "toastr"
         ]);
 
 })();

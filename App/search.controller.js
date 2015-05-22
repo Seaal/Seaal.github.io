@@ -11,6 +11,7 @@
         vm.mentors = [];
         vm.searchString = "";
         vm.search = search;
+        vm.user = {};
 
         activate();
 

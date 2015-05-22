@@ -18,7 +18,6 @@ textarea {
 
 .mentor-card {
     display: inline-block;
-    width: 495px;
     border-color: #333;
     background-color: #222;
     color: #9d9d9d;
@@ -142,3 +141,79 @@ textarea {
     position: absolute;
     left: -99999px;
 }
+
+.notifications-panel {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    width: 400px;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 0;
+}
+
+    .notifications-panel > .panel-body {
+        padding: 0 0 5px 0;
+    }
+
+    .notifications-panel > .panel-heading {
+        border-radius: 0;
+        padding-top: 15px;
+    }
+
+        .notifications-panel > .panel-heading > h4 {
+            margin: 0;
+        }
+
+.notifications-badge {
+    position: absolute !important;
+    right: 0px;
+    top: 2px !important;
+    background-color: palevioletred !important;
+    color: white !important;
+}
+
+.notification-section {
+    border-bottom: 1px solid #337ab7;
+    padding: 5px 0 5px 5px;
+    cursor: pointer;
+}
+
+    .notification-section:hover {
+        background-color: #77aef9;
+        -moz-transition: background-color linear 0.25s;
+        -o-transition: background-color linear 0.25s;
+        -webkit-transition: background-color linear 0.25s;
+        transition: background-color linear 0.25s;
+    }
+
+    .notification-section:nth-last-of-type(2) {
+        border-bottom: 0;
+    }
+
+    .notification-section > img {
+        height: 32px;
+        width: 32px;
+        margin-top: 4px;
+        margin-right: 8px;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 32px;
+    }
+
+    .notification-section > .notification-body {
+        display: inline-block;
+        width: 210px;
+    }
