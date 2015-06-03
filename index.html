@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Content/font-awesome.min.css" />
         <link href="Content/angular-toastr.min.css" rel="stylesheet" />
     </head>
-    <body ng-controller="searchController as search">
+    <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -21,6 +21,10 @@
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a ui-sref="search">Search</a></li>
+                        <li><a ui-sref="apply">Apply</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <eh-notifications-list user="user"></eh-notifications-list>
                     </ul>
@@ -28,24 +32,8 @@
             </div>
         </div>
         <div class="container body-content">
-            <div>
-                <div>
-                    <h1>Search for a mentor!</h1>
-
-                    <form ng-submit="search.search(search.searchString)">
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="Search..." ng-model="search.searchString" />
-                            <input type="submit" class="hidden-submit" />
-                        </div>
-                    </form>
-
-
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12" ng-repeat="mentor in search.mentors">
-                            <eh-mentor-card mentor="mentor"></eh-mentor-card>
-                        </div>
-                    </div>
-                </div>
+            <div ui-view>
+                
             </div>
 
             <hr />
@@ -62,17 +50,22 @@
         <script type="text/javascript" src="Scripts/angular-animate.js"></script>
         <script type="text/javascript" src="Scripts/angular-moment.js"></script>
         <script type="text/javascript" src="Scripts/angular-toastr.tpls.js"></script>
+        <script type="text/javascript" src="Scripts/angular-ui-router.js"></script>
 
         <script type="text/javascript" src="App/eloHeaven.module.js"></script>
+        <script type="text/javascript" src="App/routes.config.js"></script>
         <script type="text/javascript" src="App/Shared/seaal.module.js"></script>
         <script type="text/javascript" src="App/Shared/starRating.directive.js"></script>
         <script type="text/javascript" src="App/Shared/starRating.service.js"></script>
         <script type="text/javascript" src="App/mentorCard.directive.js"></script>
+        <script type="text/javascript" src="App/Core/leaguePicture.directive.js"></script>
         <script type="text/javascript" src="App/profilePicture.directive.js"></script>
         <script type="text/javascript" src="App/notifications.service.js" ></script>
         <script type="text/javascript" src="App/notificationsList.directive.js"></script>
+        <script type="text/javascript" src="App/Core/summonerList.directive.js"></script>
         <script type="text/javascript" src="App/search.service.js" ></script>
         <script type="text/javascript" src="App/search.controller.js"></script>
+        <script type="text/javascript" src="App/apply.controller.js"></script>
     </body>
 
 </html>

@@ -1,20 +1,22 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
         .module("eloHeaven")
-        .directive("ehProfilePicture", profilePicture);
+        .directive("ehLeaguePicture", leaguePicture);
 
-    function profilePicture() {
+    function leaguePicture() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'App/profilePicture.html',
+            templateUrl: 'App/Core/leaguePicture.html',
             scope: {
                 size: '@',
-                user: '='
+                summoner: '=',
+                alt: '@'
             },
             controllerAs: 'vm',
             bindToController: true,
+            replace: true,
             controller: function () {
                 var vm = this;
             }

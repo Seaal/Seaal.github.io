@@ -1,0 +1,5 @@
+<ul class="summoner-list">
+	<li ng-repeat="summoner in vm.user.summoners">
+		<eh-league-picture summoner="summoner" alt="{{summoner.name}}" size="small"></eh-league-picture>
+		{{summoner.name}}
+	</li>

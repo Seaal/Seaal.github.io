@@ -3,6 +3,7 @@
 
     angular
         .module("eloHeaven", [
+            "ui.router",
             "seaal",
             "ngAnimate",
             "toastr"

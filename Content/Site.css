@@ -154,7 +154,7 @@ textarea {
     list-style: outside none none;
     margin: 2px 0 0;
     min-width: 160px;
-    width: 400px;
+    width: 300px;
     position: absolute;
     text-align: left;
     top: 100%;
@@ -217,3 +217,8 @@ textarea {
         display: inline-block;
         width: 210px;
     }
+
+.summoner-list > li {
+    list-style: none;
+    margin-bottom: 20px;
+}

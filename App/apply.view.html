@@ -1,0 +1,39 @@
+<div>
+	<h1>Apply to be a mentor!</h1>
+	
+	Step 1 of X
+	
+	
+	<div class="row">
+		<div class="col-lg-6">
+			<h2>Add your Summoner(s)</h2>
+			
+			<form ng-submit="apply.addSummoner(apply.summonerName, apply.summonerRegion)">
+		        <div class="form-group">
+		            <input class="form-control" placeholder="Summoner Name..." ng-model="apply.summonerName" />
+				</div>
+				
+				<div class="form-group">
+					<select class="form-control" ng-model="apply.summonerRegion">
+						<option selected value="">Select Region...</option>
+						<option ng-repeat="region in apply.regions" value="{{region.id}}">{{region.longName}}</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+		            <input type="submit" class="btn btn-success" value="Add Summoner" />
+		        </div>
+		    </form>
+		</div>
+		<div class="col-lg-6">
+			<h2>Your Current Summoners</h2>
+			
+			<eh-summoner-list user="apply.mentor"></eh-summoner-list>
+		</div>
+	</div>
+	
+	<div ng-if="apply.mentor.summoners.length == 0" class="alert alert-danger" role="alert">You need a Ranked Summoner to continue.</div>
+	
+	<button class="btn btn-danger" ui-sref="search">Cancel</button>
+	<button class="btn btn-success pull-right" ng-disabled="apply.mentor.summoners.length == 0">Continue</button>
+</div>

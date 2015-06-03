@@ -10,7 +10,7 @@
                     mentor: '='
                 },
                 templateUrl: 'App/mentorCard.html'
-            }
+            };
 
             return directive;
         });
