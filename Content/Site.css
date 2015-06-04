@@ -222,3 +222,30 @@ textarea {
     list-style: none;
     margin-bottom: 20px;
 }
+
+.summoner-list > li > span {
+    margin-left: 10px;
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 32px;
+}
+
+.runepage-code {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    cursor: text;
+}
+
+.runepage-item {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.runepage-submit {
+    font-size: 18px;
+    height: 40px;
+}

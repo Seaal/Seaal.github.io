@@ -1,6 +1,8 @@
 (function() {
 	
 	angular
-		.module("eloHeaven.mentors", []);
+		.module("eloHeaven.mentors", [
+			"ui.bootstrap"
+		]);
 	
 })();

@@ -5,8 +5,22 @@
 		
 	function leagueApiService() {
 		return {
+			confirmSummoner: confirmSummoner,
+			getSummoner: getSummoner,
 			getRegions : getRegions	
 		};
+		
+		function confirmSummoner(summoner, code) {
+			return true;
+		}
+		
+		function getSummoner(name, region) {
+			return {
+				name: name,
+				region: getRegions()[region].shortName,
+				rank: "Diamond III"
+			};
+		}
 		
 		function getRegions() {
 			return [{

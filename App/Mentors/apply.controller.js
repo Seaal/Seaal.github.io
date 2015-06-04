@@ -3,14 +3,14 @@
 		.module("eloHeaven.mentors")
 		.controller("applyController", ApplyController);
 		
-	function ApplyController(leagueApiService) {
+	function ApplyController(leagueApiService, $modal) {
 		var vm = this;
 		
 		vm.addSummoner = addSummoner;
 		vm.mentor = {};
 		vm.regions = [];
 		vm.summonerName = "";
-		vm.summonerRegion = 0;
+		vm.summonerRegion = "";
 		
 		activate();
 		
@@ -25,10 +25,33 @@
 		
 		function addSummoner(name, region) {
 			
-			vm.mentor.summoners.push({
-				name: name,
-				region: vm.regions[region].shortName,
-				rank: "Diamond III"
+			if(name == "") {
+				return;
+			}
+			
+			if(region === "") {
+				return;
+			}
+			
+			var summoner = leagueApiService.getSummoner(name, region);
+			
+			var confirmModal = $modal.open({
+				templateUrl: 'App/Mentors/addSummoner.view.html',
+				controller: 'addSummonerController',
+				controllerAs: 'vm',
+				backdrop: 'static',
+				resolve: {
+					summoner: function() {
+						return summoner;
+					}
+				}
+			});
+			
+			confirmModal.result.then(function(summoner) {
+				vm.mentor.summoners.push(summoner);
+				
+				vm.summonerName = "";
+				vm.summonerRegion = "";
 			});
 		}
 	}
