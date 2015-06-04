@@ -1,13 +1,14 @@
 (function() {
 	angular
 		.module("eloHeaven.mentors")
-		.controller("applyController", ApplyController);
+		.controller("addSummonersController", AddSummonerController);
 		
-	function ApplyController(leagueApiService, $modal) {
+	function AddSummonerController($modal, $state, leagueApiService, applicationService, $scope) {
 		var vm = this;
 		
 		vm.addSummoner = addSummoner;
 		vm.mentor = {};
+		vm.previousStep = previousStep;
 		vm.regions = [];
 		vm.summonerName = "";
 		vm.summonerRegion = "";
@@ -36,8 +37,8 @@
 			var summoner = leagueApiService.getSummoner(name, region);
 			
 			var confirmModal = $modal.open({
-				templateUrl: 'App/Mentors/addSummoner.view.html',
-				controller: 'addSummonerController',
+				templateUrl: 'App/Mentors/Application/confirmSummoner.html',
+				controller: 'confirmSummonerController',
 				controllerAs: 'vm',
 				backdrop: 'static',
 				resolve: {
@@ -53,6 +54,12 @@
 				vm.summonerName = "";
 				vm.summonerRegion = "";
 			});
+		}
+		
+		function previousStep() {
+			var previousStep = applicationService.getPreviousStep($state.current.data.step);
+			
+			$state.go(previousStep);
 		}
 	}
 })();

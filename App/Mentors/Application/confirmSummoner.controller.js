@@ -2,9 +2,9 @@
 	
 	angular
 		.module("eloHeaven.mentors")
-		.controller("addSummonerController", AddSummonerController);
+		.controller("confirmSummonerController", ConfirmSummonerController);
 		
-	function AddSummonerController($scope, leagueApiService, summoner) {
+	function ConfirmSummonerController($scope, leagueApiService, summoner) {
 		var vm = this;
 		
 		vm.summoner = summoner;
