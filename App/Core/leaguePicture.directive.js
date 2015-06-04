@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("eloHeaven")
+        .module("eloHeaven.core")
         .directive("ehLeaguePicture", leaguePicture);
 
     function leaguePicture() {

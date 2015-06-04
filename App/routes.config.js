@@ -9,12 +9,12 @@
 		$stateProvider
 			.state("search", {
 				url: "/mentors/search",
-				templateUrl: "App/search.view.html",
+				templateUrl: "App/Mentors/search.view.html",
 				controller: "searchController as search"
 			})
 			.state("apply", {
 				url: "/mentors/apply",
-				templateUrl: "App/apply.view.html",
+				templateUrl: "App/Mentors/apply.view.html",
 				controller: "applyController as apply"
 			});
 	}

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("eloHeaven")
+        .module("eloHeaven.core")
         .directive("ehSummonerList", function () {
             var directive = {
                 restrict: 'E',

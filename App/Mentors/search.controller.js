@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("eloHeaven")
+        .module("eloHeaven.mentors")
         .controller("searchController", SearchController);
 
     function SearchController(searchService) {

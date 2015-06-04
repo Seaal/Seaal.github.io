@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("eloHeaven")
+        .module("eloHeaven.mentors")
         .factory("searchService", searchService);
 
     function searchService($q, $timeout) {
@@ -54,7 +54,7 @@
                 }
 
                 defer.resolve(returnMentors);
-            }, 100)
+            }, 100);
 
             return defer.promise;
         }

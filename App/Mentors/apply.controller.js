@@ -1,9 +1,9 @@
 (function() {
 	angular
-		.module("eloHeaven")
+		.module("eloHeaven.mentors")
 		.controller("applyController", ApplyController);
 		
-	function ApplyController() {
+	function ApplyController(leagueApiService) {
 		var vm = this;
 		
 		vm.addSummoner = addSummoner;
@@ -20,26 +20,15 @@
 				summoners: []
 			};
 			
-			vm.regions = [{
-				id: 0,
-				shortName: "NA",
-				longName: "North America"
-			}, {
-				id: 1,
-				shortName: "EUW",
-				longName: "Europe West"
-			}, {
-				id: 2,
-				shortName: "EUNE",
-				longName: "Europe North & East"
-			}];
+			vm.regions = leagueApiService.getRegions();
 		}
 		
 		function addSummoner(name, region) {
 			
 			vm.mentor.summoners.push({
 				name: name,
-				region: vm.regions[region].shortName
+				region: vm.regions[region].shortName,
+				rank: "Diamond III"
 			});
 		}
 	}
