@@ -24,8 +24,3 @@
 		<eh-summoner-list user="apply.mentor"></eh-summoner-list>
 	</div>
 </div>
-
-<div ng-if="apply.mentor.summoners.length == 0" class="alert alert-danger" role="alert">You need a Ranked Summoner to continue.</div>
-
-<button class="btn btn-danger" ng-click="apply.previousStep()">Back</button>
-<button class="btn btn-success pull-right" ng-disabled="apply.mentor.summoners.length == 0">Continue</button>
