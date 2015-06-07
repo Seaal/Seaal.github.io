@@ -37,6 +37,7 @@
 		}
 		
 		$scope.$on('$stateChangeSuccess', function(event, toState) {
+			vm.errors.length = 0;
 			vm.currentStep = toState.data.step;
 		});
 	}

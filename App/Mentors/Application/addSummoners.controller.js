@@ -11,6 +11,7 @@
 		vm.regions = [];
 		vm.summonerName = "";
 		vm.summonerRegion = "";
+		vm.errors = [];
 		
 		$scope.$on("nextStep", nextStep);
 		
@@ -27,7 +28,7 @@
 		
 		function nextStep(event, errors) {
 				
-				errors.length = 0;
+				vm.errors.length = 0;
 				
 				if(vm.mentor.summoners.length == 0) {					
 					errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
@@ -36,17 +37,17 @@
 		
 		function addSummoner(name, region) {
 			
-			errors.length = 0;
+			vm.errors.length = 0;
 			
 			if(name == "") {
-				errors.push({ message: 'Summoner Name cannot be empty.' });
+				vm.errors.push({ message: 'Summoner Name cannot be empty.' });
 			}
 			
 			if(region === "") {
-				errors.push({ message: 'Please select a region.' });
+				vm.errors.push({ message: 'Please select a region.' });
 			}
 			
-			if(errors.length > 0) {
+			if(vm.errors.length > 0) {
 				return;
 			}
 			
