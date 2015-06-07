@@ -10,11 +10,12 @@
 		vm.errors = [];
 		vm.previousStep = previousStep;
 		vm.nextStep = nextStep;
+		vm.totalSteps = 0;
 		
 		activate();
 		
 		function activate() {
-			$scope.onContinue = function() { return true; };
+			vm.totalSteps = applicationService.getTotalSteps(); 
 		}
 		
 		function nextStep(currentStep) {

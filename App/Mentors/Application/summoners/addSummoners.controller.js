@@ -54,7 +54,7 @@
 			var summoner = leagueApiService.getSummoner(name, region);
 			
 			var confirmModal = $modal.open({
-				templateUrl: 'App/Mentors/Application/confirmSummoner.html',
+				templateUrl: 'App/Mentors/Application/summoners/confirmSummoner.html',
 				controller: 'confirmSummonerController',
 				controllerAs: 'vm',
 				backdrop: 'static',

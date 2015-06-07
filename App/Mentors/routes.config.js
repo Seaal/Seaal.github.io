@@ -17,15 +17,21 @@
 			})
 			.state("apply.terms", {
 				url: "",
-				templateUrl: "App/Mentors/Application/terms.view.html",
+				templateUrl: "App/Mentors/Application/terms/terms.view.html",
 				controller: "termsController as application",
 				data: { step: applicationService.getStep("apply.terms") }
 			})
 			.state("apply.summoners", {
 				url: "/summoners",
-				templateUrl: "App/Mentors/Application/addSummoners.view.html",
-				controller: "addSummonersController as apply",
+				templateUrl: "App/Mentors/Application/summoners/addSummoners.view.html",
+				controller: "addSummonersController as application",
 				data: { step: applicationService.getStep("apply.summoners") }
+			})
+			.state("apply.basicInfo", {
+				url: "/basicinfo",
+				templateUrl: "App/mentors/application/basicinfo/basicInfo.view.html",
+				controller: "basicInfoController as application",
+				data: { step: applicationService.getStep("apply.basicInfo") }
 			});
 			
 	}

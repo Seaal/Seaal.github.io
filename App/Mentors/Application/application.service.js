@@ -7,13 +7,15 @@
 			var service = {
 				getPreviousStep: getPreviousStep,
 				getNextStep: getNextStep,
-				getStep: getStep
+				getStep: getStep,
+				getTotalSteps: getTotalSteps
 			};
 			
 			var steps = [
 				"",
 				"apply.terms",
-				"apply.summoners"
+				"apply.summoners",
+				"apply.basicInfo"
 			];
 			
 			return service;
@@ -32,6 +34,10 @@
 						return i;
 					}
 				}
+			}
+			
+			function getTotalSteps() {
+				return steps.length - 1;
 			}
 		}
 })();
