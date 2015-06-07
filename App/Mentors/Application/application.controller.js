@@ -10,7 +10,6 @@
 		vm.errors = [];
 		vm.previousStep = previousStep;
 		vm.nextStep = nextStep;
-		vm.valid = true;
 		
 		activate();
 		
@@ -19,7 +18,12 @@
 		}
 		
 		function nextStep(currentStep) {
-			if($scope.onContinue()) {
+			
+			vm.errors.length = 0;
+			
+			$scope.$broadcast("nextStep", vm.errors);
+			
+			if(vm.errors.length === 0) {
 				var nextStep = applicationService.getNextStep(currentStep);
 			
 				$state.go(nextStep);

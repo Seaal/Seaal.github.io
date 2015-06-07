@@ -12,27 +12,11 @@
 		vm.summonerName = "";
 		vm.summonerRegion = "";
 		
-		var errors = $scope.$parent.application.errors;
+		$scope.$on("nextStep", nextStep);
 		
 		activate();
 		
 		function activate() {
-			
-			errors.length = 0;
-			
-			$scope.$parent.onContinue = function() {
-				
-				errors.length = 0;
-				
-				if(vm.mentor.summoners.length == 0) {
-					
-					errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
-					
-					return false;
-				}
-				
-				return true;
-			}
 			
 			vm.mentor = {
 				summoners: []
@@ -40,6 +24,15 @@
 			
 			vm.regions = leagueApiService.getRegions();
 		}
+		
+		function nextStep(event, errors) {
+				
+				errors.length = 0;
+				
+				if(vm.mentor.summoners.length == 0) {					
+					errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
+				}
+			}
 		
 		function addSummoner(name, region) {
 			
