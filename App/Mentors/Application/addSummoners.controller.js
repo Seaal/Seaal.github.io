@@ -28,12 +28,12 @@
 		
 		function nextStep(event, errors) {
 				
-				vm.errors.length = 0;
-				
-				if(vm.mentor.summoners.length == 0) {					
-					errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
-				}
+			vm.errors.length = 0;
+			
+			if(vm.mentor.summoners.length == 0) {					
+				errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
 			}
+		}
 		
 		function addSummoner(name, region) {
 			
