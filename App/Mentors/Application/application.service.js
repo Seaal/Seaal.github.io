@@ -5,11 +5,13 @@
 		
 		function applicationService(localStorageService) {
 			var service = {
+				getHighestStepReached: getHighestStepReached,
 				getPreviousStep: getPreviousStep,
 				getNextStep: getNextStep,
 				getStep: getStep,
 				getStepData: getStepData,
 				getTotalSteps: getTotalSteps,
+				saveHighestStepReached: saveHighestStepReached,
 				saveStepData: saveStepData
 			};
 			
@@ -28,6 +30,14 @@
 			
 			function saveStepData(stepKey, applicationState) {
 				localStorageService.set("applicationStep-" + stepKey, applicationState);
+			}
+			
+			function getHighestStepReached() {
+				return localStorageService.get("applicationHighestStep");
+			}
+			
+			function saveHighestStepReached(highestStep) {
+				localStorageService.set("applicationHighestStep", highestStep);
 			}
 			
 			function getNextStep(step) {

@@ -15,7 +15,13 @@
 		activate();
 		
 		function activate() {
-			vm.totalSteps = applicationService.getTotalSteps(); 
+			vm.totalSteps = applicationService.getTotalSteps();
+			
+			var highestStepReached = applicationService.getHighestStepReached();
+			
+			if(highestStepReached === null) {
+				applicationService.saveHighestStepReached(1);
+			}
 		}
 		
 		function nextStep(currentStep) {
@@ -25,9 +31,17 @@
 			$scope.$broadcast("nextStep", vm.errors);
 			
 			if(vm.errors.length === 0) {
+				
+				var highestStepReached = applicationService.getHighestStepReached();
+				
+				if(highestStepReached < vm.currentStep + 1) {
+					applicationService.saveHighestStepReached(vm.currentStep + 1);
+				}
+				
 				var nextStep = applicationService.getNextStep(currentStep);
 			
 				$state.go(nextStep);
+				
 			}
 		}
 		
@@ -38,6 +52,17 @@
 		}
 		
 		$scope.$on('$stateChangeSuccess', function(event, toState) {
+			
+			var highestStepReached = applicationService.getHighestStepReached();
+			
+			if(highestStepReached && highestStepReached < toState.data.step) {
+				var highestStep = applicationService.getNextStep(highestStepReached - 1);
+				
+				$state.go(highestStep);
+				
+				return;
+			}
+			
 			vm.errors.length = 0;
 			vm.currentStep = toState.data.step;
 		});
