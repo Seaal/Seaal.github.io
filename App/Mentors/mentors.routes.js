@@ -29,7 +29,7 @@
 			})
 			.state("apply.basicInfo", {
 				url: "/basicinfo",
-				templateUrl: "App/mentors/application/basicinfo/basicInfo.view.html",
+				templateUrl: "App/Mentors/Application/basicInfo/basicInfo.view.html",
 				controller: "basicInfoController as application",
 				data: { step: applicationService.getStep("apply.basicInfo") }
 			});
