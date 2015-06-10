@@ -30,9 +30,7 @@
             </div>
 
             <div class="information-right visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-                <ul class="image-group">
-                    <li ng-repeat="champion in mentor.champions"><img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" /></li>
-                </ul>
+                <eh-champion-list selected-champions="mentor.champions" read-only="true"></eh-champion-list>
             </div>
         </div>        
 

@@ -1,0 +1,14 @@
+<div ng-hide="list.editMode">
+    <ul class="image-group">
+        <li ng-repeat="champion in list.selectedChampions"><img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" /></li>
+    </ul>
+</div>
+<div ng-show="list.editMode">
+    Edit Mode
+    
+    <ul class="image-group">
+        <li ng-repeat="champion in list.allChampions"><img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" /></li>
+    </ul>
+</div>
+
+<button class="button" ng-hide="list.readOnly" ng-click="list.editMode = !list.editMode;">Edit Mode</button>

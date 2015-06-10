@@ -9,7 +9,8 @@
 		activate();
 		
 		function activate() {
-			
+			vm.selectedChampions = [{ name: 'Lux', imageUrl: 'images/lux-32.jpg' },
+                    { name: 'Shaco', imageUrl: 'images/shaco-32.jpg' }];
 		}
 	}
 })();
