@@ -3,12 +3,12 @@
 		.module("eloHeaven.mentors")
 		.controller("addSummonersController", AddSummonerController);
 		
-	function AddSummonerController($modal, $state, $scope, leagueApiService, applicationService) {
+	function AddSummonerController($modal, $scope, leagueApiService, applicationService) {
 		var vm = this;
 		
 		vm.addSummoner = addSummoner;
-		vm.mentor = {};
 		vm.regions = [];
+		vm.summoners = [];
 		vm.summonerName = "";
 		vm.summonerRegion = "";
 		vm.errors = [];
@@ -19,9 +19,11 @@
 		
 		function activate() {
 			
-			vm.mentor = {
-				summoners: []
-			};
+			var summoners = applicationService.getStepData("summoners");
+			
+			if(summoners !== null) {
+				vm.summoners = summoners;
+			}
 			
 			vm.regions = leagueApiService.getRegions();
 		}
@@ -30,8 +32,12 @@
 				
 			vm.errors.length = 0;
 			
-			if(vm.mentor.summoners.length == 0) {					
+			if(vm.summoners.length == 0) {					
 				errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
+			}
+			
+			if(!errors.length) {
+				applicationService.saveStepData("summoners", vm.summoners);
 			}
 		}
 		
@@ -66,7 +72,7 @@
 			});
 			
 			confirmModal.result.then(function(summoner) {
-				vm.mentor.summoners.push(summoner);
+				vm.summoners.push(summoner);
 				
 				vm.summonerName = "";
 				vm.summonerRegion = "";

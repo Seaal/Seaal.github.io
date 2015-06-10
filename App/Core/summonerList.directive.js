@@ -7,7 +7,7 @@
             var directive = {
                 restrict: 'E',
                 scope: {
-                    user: '='
+                    summoners: '='
                 },
                 templateUrl: 'App/Core/summonerList.html',
                 controllerAs: 'vm',

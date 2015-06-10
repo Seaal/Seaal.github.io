@@ -1,6 +1,7 @@
 (function() {
 	
 	angular
+		.module("eloHeaven.mentors")
 		.directive("ehChampionList", function() {
 			return {
 				restrict: 'E',
