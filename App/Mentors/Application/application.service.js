@@ -8,6 +8,7 @@
 				getHighestStepReached: getHighestStepReached,
 				getPreviousStep: getPreviousStep,
 				getNextStep: getNextStep,
+				getRandomCode: getRandomCode,
 				getStep: getStep,
 				getStepData: getStepData,
 				getTotalSteps: getTotalSteps,
@@ -58,6 +59,18 @@
 			
 			function getTotalSteps() {
 				return steps.length - 1;
+			}
+			
+			function getRandomCode() {
+				var characters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!£$%^&*(){}:@~<>?[]#";
+				
+				var code = "";
+				
+				for(var i = 0; i < 8; i++) {
+					code += characters[Math.round(Math.random() * (characters.length - 1))];
+				}
+				
+				return code;
 			}
 		}
 })();

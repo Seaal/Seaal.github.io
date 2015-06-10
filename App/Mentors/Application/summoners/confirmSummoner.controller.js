@@ -4,7 +4,7 @@
 		.module("eloHeaven.mentors")
 		.controller("confirmSummonerController", ConfirmSummonerController);
 		
-	function ConfirmSummonerController($scope, leagueApiService, summoner) {
+	function ConfirmSummonerController($scope, applicationService, leagueApiService, summoner) {
 		var vm = this;
 		
 		vm.summoner = summoner;
@@ -14,7 +14,7 @@
 		activate();
 		
 		function activate() {
-			vm.code = "A6\"dusU";
+			vm.code = applicationService.getRandomCode();
 		}
 		
 		function confirm(summoner, code) {
