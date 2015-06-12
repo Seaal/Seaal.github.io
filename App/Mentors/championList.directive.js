@@ -5,7 +5,7 @@
 		.directive("ehChampionList", function() {
 			return {
 				restrict: 'E',
-				templateUrl: 'App/mentors/championList.html',
+				templateUrl: 'App/Mentors/championList.html',
 				bindToController: true,
 				scope: {
 					readOnly: "=?",
