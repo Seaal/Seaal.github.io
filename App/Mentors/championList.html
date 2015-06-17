@@ -9,8 +9,13 @@
 
 <div ng-show="list.editMode">
 
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="list.filterString" ng-change="list.filterChampions(list.filterString)" placeholder="Search Champions..." />
+    </div>
+    
+
     <ul class="image-group">
-        <li ng-repeat="champion in list.allChampions" class="champion-select-edit" ng-class="{'champion-selected': champion.selected}" ng-click="list.selectChampion($index)">
+        <li ng-repeat="champion in list.editChampions" class="champion-select-edit" ng-class="{'champion-selected': champion.selected}" ng-click="list.selectChampion($index)">
             <img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
         </li>
     </ul>
