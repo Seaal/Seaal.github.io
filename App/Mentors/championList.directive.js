@@ -10,7 +10,8 @@
 				scope: {
 					readOnly: "=?",
 					editMode: "=?",
-					selectedChampions: '='
+					selectedChampions: '=',
+					size: "@"
 				},
 				controllerAs: "list",
 				controller: function(championListService) {
@@ -33,6 +34,10 @@
 						
 						if(vm.readOnly === undefined) {
 							vm.readOnly = true;
+						}
+						
+						if(vm.size === undefined) {
+							vm.size = "small";
 						}
 						
 						if(!vm.readOnly) {

@@ -9,8 +9,8 @@
 		activate();
 		
 		function activate() {
-			vm.selectedChampions = [{ name: 'Lux', imageUrl: 'images/lux-32.jpg' },
-                    { name: 'Shaco', imageUrl: 'images/shaco-32.jpg' }];
+			vm.selectedChampions = [{ name: 'Lux', imageUrl: 'images/lux-48.jpg' },
+                    				{ name: 'Shaco', imageUrl: 'images/shaco-48.jpg' }];
 		}
 	}
 })();

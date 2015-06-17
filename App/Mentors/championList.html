@@ -1,7 +1,9 @@
 <div ng-hide="list.editMode">
     
     <ul class="image-group">
-        <li ng-repeat="champion in list.selectedChampions"><img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" /></li>
+        <li ng-repeat="champion in list.selectedChampions">
+            <img ng-class="{ 'image-small': list.size=='small', 'champion-image-medium' : list.size=='medium' }" ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
+        </li>
     </ul>
     
     <button class="btn btn-primary" ng-hide="list.readOnly" ng-click="list.edit()">Edit</button>
@@ -16,7 +18,7 @@
 
     <ul class="image-group">
         <li ng-repeat="champion in list.editChampions" class="champion-select-edit" ng-class="{'champion-selected': champion.selected}" ng-click="list.selectChampion($index)">
-            <img ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
+            <img ng-class="{ 'image-small': list.size=='small', 'champion-image-medium' : list.size=='medium' }" ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
         </li>
     </ul>
     
