@@ -32,7 +32,25 @@
 				templateUrl: "App/Mentors/Application/basicInfo/basicInfo.view.html",
 				controller: "basicInfoController as application",
 				data: { step: applicationService.getStepNumber("apply.basicInfo") }
-			});
+			})
+			.state("apply.availability", {
+				url: "/availability",
+				templateUrl: "App/Mentors/Application/availability/availability.view.html",
+				controller: "availabilityController as application",
+				data: { step: applicationService.getStepNumber("apply.availability") }
+			})
+			.state("apply.bio", {
+				url: "/bio",
+				templateUrl: "App/Mentors/Application/bio/bio.view.html",
+				controller: "bioController as application",
+				data: { step: applicationService.getStepNumber("apply.bio") }
+			})
+			.state("apply.confirmation", {
+				url: "/confirmation",
+				templateUrl: "App/Mentors/Application/confirmation/confirmation.view.html",
+				controller: "confirmationController as application",
+				data: { step: applicationService.getStepNumber("apply.confirmation") }
+			})
 			
 	}
 })();

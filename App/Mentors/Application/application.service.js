@@ -21,7 +21,10 @@
 				"",
 				"apply.terms",
 				"apply.summoners",
-				"apply.basicInfo"
+				"apply.basicInfo",
+				"apply.availability",
+				"apply.bio",
+				"apply.confirmation"
 			];
 			
 			return service;
