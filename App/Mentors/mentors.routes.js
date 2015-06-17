@@ -19,19 +19,19 @@
 				url: "",
 				templateUrl: "App/Mentors/Application/terms/terms.view.html",
 				controller: "termsController as application",
-				data: { step: applicationService.getStep("apply.terms") }
+				data: { step: applicationService.getStepNumber("apply.terms") }
 			})
 			.state("apply.summoners", {
 				url: "/summoners",
 				templateUrl: "App/Mentors/Application/summoners/addSummoners.view.html",
 				controller: "addSummonersController as application",
-				data: { step: applicationService.getStep("apply.summoners") }
+				data: { step: applicationService.getStepNumber("apply.summoners") }
 			})
 			.state("apply.basicInfo", {
 				url: "/basicinfo",
 				templateUrl: "App/Mentors/Application/basicInfo/basicInfo.view.html",
 				controller: "basicInfoController as application",
-				data: { step: applicationService.getStep("apply.basicInfo") }
+				data: { step: applicationService.getStepNumber("apply.basicInfo") }
 			});
 			
 	}

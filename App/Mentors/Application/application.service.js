@@ -11,6 +11,7 @@
 				getRandomCode: getRandomCode,
 				getStep: getStep,
 				getStepData: getStepData,
+				getStepNumber: getStepNumber,
 				getTotalSteps: getTotalSteps,
 				saveHighestStepReached: saveHighestStepReached,
 				saveStepData: saveStepData
@@ -49,7 +50,11 @@
 				return steps[step - 1];
 			}
 			
-			function getStep(routeName) {
+			function getStep(step) {
+				return steps[step];
+			}
+			
+			function getStepNumber(routeName) {
 				for(var i=0; i<steps.length; i++) {
 					if(steps[i] === routeName) {
 						return i;

@@ -21,6 +21,9 @@
 			
 			if(highestStepReached === null) {
 				applicationService.saveHighestStepReached(1);
+			} else if(highestStepReached > 1) {
+				var highestStep = applicationService.getStep(highestStepReached);
+				$state.go(highestStep);
 			}
 		}
 		
@@ -56,7 +59,7 @@
 			var highestStepReached = applicationService.getHighestStepReached();
 			
 			if(highestStepReached && highestStepReached < toState.data.step) {
-				var highestStep = applicationService.getNextStep(highestStepReached - 1);
+				var highestStep = applicationService.getStep(highestStepReached);
 				
 				$state.go(highestStep);
 				
