@@ -3,7 +3,7 @@
 		.module("eloHeaven.mentors")
 		.controller("addSummonersController", AddSummonerController);
 		
-	function AddSummonerController($modal, $scope, leagueApiService, applicationService) {
+	function AddSummonerController($modal, $scope, $window, leagueApiService, applicationService) {
 		var vm = this;
 		
 		vm.addSummoner = addSummoner;
@@ -14,6 +14,9 @@
 		vm.errors = [];
 		
 		$scope.$on("nextStep", nextStep);
+		$scope.$on("$stateChangeStart", saveChanges);
+		
+		$window.onbeforeunload = saveChanges;
 		
 		activate();
 		
@@ -35,10 +38,10 @@
 			if(vm.summoners.length == 0) {					
 				errors.push({ message: 'You need a Ranked Level 30 account to continue.' });
 			}
-			
-			if(!errors.length) {
-				applicationService.saveStepData("summoners", vm.summoners);
-			}
+		}
+		
+		function saveChanges() {
+			applicationService.saveStepData("summoners", vm.summoners);
 		}
 		
 		function addSummoner(name, region) {

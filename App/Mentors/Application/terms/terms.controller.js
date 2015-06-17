@@ -3,12 +3,15 @@
 		.module("eloHeaven.mentors")
 		.controller("termsController", TermsController);
 		
-	function TermsController($scope, applicationService) {
+	function TermsController($scope, $window, applicationService) {
 		var vm = this;
 		
 		vm.acceptedTerms = false;
 		
 		$scope.$on("nextStep", nextStep);
+		$scope.$on("$stateChangeStart", saveChanges);
+		
+		$window.onbeforeunload = saveChanges;
 		
 		activate();
 		
@@ -20,14 +23,14 @@
 			}
 		}
 		
+		function saveChanges() {
+			applicationService.saveStepData("terms", vm.acceptedTerms);
+		}
+		
 		function nextStep(event, errors) {
 			
 			if(!vm.acceptedTerms) {					
 				errors.push({ message: 'You need to accept the terms to continue.' });
-			}
-			
-			if(!errors.length) {
-				applicationService.saveStepData("terms", vm.acceptedTerms);
 			}
 		}
 	}
