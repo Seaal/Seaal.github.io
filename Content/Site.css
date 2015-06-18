@@ -264,10 +264,25 @@ textarea {
     from {
     max-width: 64px;
     opacity: 1;
+    margin: 3px 8px 8px 3px;
   }
   to {
     max-width: 0;
     opacity: 0;
+    margin: 3px 0px 8px 0px;
+  }
+}
+
+@keyframes champ_leave_selected_animation {
+    from {
+    max-width: 64px;
+    opacity: 1;
+    margin: 0px 5px 5px 0px;
+  }
+  to {
+    max-width: 0;
+    opacity: 0;
+    margin: 0px 0px 5px 0px;
   }
 }
 
@@ -288,19 +303,30 @@ textarea {
     max-width: 64px;
 }
 
-.image-group > .champion-select-edit.ng-leave {
+.image-group > .champion-select-edit.champion-not-selected.ng-leave {
     -webkit-animation:0.5s champ_leave_animation;
     -moz-animation:0.5s champ_leave_animation;
     -o-animation:0.5s champ_leave_animation;
     animation:0.5s champ_leave_animation;
 }
 
-.image-group > .champion-select-edit.champion-select-edit.ng-move {
-    opacity: 0.5;
+.image-group > .champion-select-edit.champion-selected.ng-leave {
+    -webkit-animation:0.5s champ_leave_selected_animation;
+    -moz-animation:0.5s champ_leave_selected_animation;
+    -o-animation:0.5s champ_leave_selected_animation;
+    animation:0.5s champ_leave_selected_animation;
 }
 
-.image-group > .champion-select-edit.champion-select-edit.ng-move-active {
-    opacity: 1;
+.image-group > .champion-select-edit.ng-move {
+    margin: 3px 0px 8px 0px;
+}
+
+.image-group > .champion-select-edit.champion-selected.ng-move {
+    margin: 0px 0px 5px 0px;
+}
+
+.image-group > .champion-select-edit.ng-move-active {
+    margin: 3px 8px 8px 3px;
 }
 
 .image-group > .champion-selected {
