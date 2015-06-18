@@ -20,7 +20,6 @@
 					vm.cancel = cancel;
 					vm.edit = edit;
 					vm.editChampions = [];
-					vm.filterChampions = filterChampions;
 					vm.filterString = "";
 					vm.save = save;
 					vm.selectChampion = selectChampion;
@@ -49,8 +48,6 @@
 					function edit() {
 						vm.filterString = "";					
 						vm.editMode = true;
-						
-						filterChampions("");
 					}
 					
 					function save() {
@@ -65,12 +62,8 @@
 						vm.editMode = false;
 					}
 					
-					function selectChampion(index) {
-						vm.editChampions[index].selected = !vm.editChampions[index].selected;
-					}
-					
-					function filterChampions(filterString) {
-						vm.editChampions = championListService.filterChampions(filterString);
+					function selectChampion(champion) {
+						champion.selected = !champion.selected;
 					}
 				}
 			};

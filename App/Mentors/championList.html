@@ -12,12 +12,12 @@
 <div ng-show="list.editMode">
 
     <div class="form-group">
-        <input type="text" class="form-control" ng-model="list.filterString" ng-change="list.filterChampions(list.filterString)" placeholder="Search Champions..." />
+        <input type="text" class="form-control" ng-model="list.filterString" placeholder="Search Champions..." />
     </div>
     
 
     <ul class="image-group">
-        <li ng-repeat="champion in list.editChampions" class="champion-select-edit" ng-class="{'champion-selected': champion.selected}" ng-click="list.selectChampion($index)">
+        <li ng-repeat="champion in list.editChampions | filter: { name: list.filterString } track by champion.name" class="champion-select-edit" ng-class="{'champion-selected': champion.selected}" ng-click="list.selectChampion(champion)">
             <img ng-class="{ 'image-small': list.size=='small', 'champion-image-medium' : list.size=='medium' }" ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
         </li>
     </ul>
