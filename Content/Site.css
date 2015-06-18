@@ -265,11 +265,13 @@ textarea {
     max-width: 64px;
     opacity: 1;
     margin: 3px 8px 8px 3px;
+    border: 1px solid #222;
   }
   to {
     max-width: 0;
     opacity: 0;
     margin: 3px 0px 8px 0px;
+    border: none;
   }
 }
 
@@ -278,11 +280,13 @@ textarea {
     max-width: 64px;
     opacity: 1;
     margin: 0px 5px 5px 0px;
+    border: 4px solid greenyellow;
   }
   to {
     max-width: 0;
     opacity: 0;
     margin: 0px 0px 5px 0px;
+    border: none;
   }
 }
 
