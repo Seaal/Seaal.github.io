@@ -340,5 +340,5 @@ textarea {
 }
 
 .resize-horizontal {
-    cursor: ew-resize;
+    cursor: move;
 }

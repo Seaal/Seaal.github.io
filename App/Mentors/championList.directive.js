@@ -48,13 +48,12 @@
 						}
 						
 						vm.sortableOptions = {
-						 axis: 'x',
 						 disabled: vm.readOnly,
 						 helper: 'clone', 
 						 opacity: 0.5,
 						 scroll: false,
 						 start: sortStart,
-						 cursor: 'ew-resize'
+						 cursor: 'move'
 					};
 					}
 					
