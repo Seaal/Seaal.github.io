@@ -23,6 +23,7 @@
 					vm.filterString = "";
 					vm.save = save;
 					vm.selectChampion = selectChampion;
+					vm.sortableOptions = {};
 					
 					activate();
 					
@@ -43,6 +44,16 @@
 							vm.editChampions = championListService.getAllChampions();
 							championListService.setAllChampionsSelected(vm.selectedChampions);
 						}
+						
+						vm.sortableOptions = {
+						 axis: 'x',
+						 disabled: vm.readOnly,
+						 helper: 'clone', 
+						 opacity: 0.5,
+						 scroll: false,
+						 start: sortStart,
+						 cursor: 'ew-resize'
+					};
 					}
 					
 					function edit() {
@@ -64,6 +75,14 @@
 					
 					function selectChampion(champion) {
 						champion.selected = !champion.selected;
+					}
+					
+					function sortStart(e, ui) {
+						//Fix for the list elements when a champion is being moved
+						ui.placeholder.html('&nbsp;');
+						
+						//Fix for inconsistent reordering of champions
+						$(e.target).data("ui-sortable").floating = true;
 					}
 				}
 			};

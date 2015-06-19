@@ -338,3 +338,7 @@ textarea {
     border-radius: 2px;
     margin: 0 5px 5px 0;
 }
+
+.resize-horizontal {
+    cursor: ew-resize;
+}

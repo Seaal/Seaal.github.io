@@ -1,7 +1,7 @@
 <div ng-hide="list.editMode">
     
-    <ul class="image-group">
-        <li ng-repeat="champion in list.selectedChampions">
+    <ul ui-sortable="list.sortableOptions" ng-model="list.selectedChampions" class="image-group">
+        <li ng-class="{ 'resize-horizontal': !vm.readOnly }" ng-repeat="champion in list.selectedChampions">
             <img ng-class="{ 'image-small': list.size=='small', 'champion-image-medium' : list.size=='medium' }" ng-src="{{champion.imageUrl}}" alt="{{champion.name}}" title="{{champion.name}}" />
         </li>
     </ul>
@@ -14,7 +14,6 @@
     <div class="form-group">
         <input type="text" class="form-control" ng-model="list.filterString" placeholder="Search Champions..." />
     </div>
-    
 
     <ul class="image-group">
         <li ng-repeat="champion in list.editChampions | filter: { name: list.filterString } track by champion.name" class="champion-select-edit" ng-class="{'champion-selected': champion.selected, 'champion-not-selected' : !champion.selected }" ng-click="list.selectChampion(champion)">

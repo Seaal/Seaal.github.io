@@ -1,7 +1,7 @@
 (function() {
 	
 	angular
-		.module("eloHeven.mentors")
+		.module("eloHeaven.mentors")
 		.controller("availabilityController", AvailabilityController);
 		
 		function AvailabilityController() {
