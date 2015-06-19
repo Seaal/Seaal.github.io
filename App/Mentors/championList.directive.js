@@ -18,9 +18,11 @@
 					var vm = this;
 					
 					vm.cancel = cancel;
+					vm.championNumber = vm.selectedChampions.length;
 					vm.edit = edit;
 					vm.editChampions = [];
 					vm.filterString = "";
+					vm.maxChampionNumber = 10;
 					vm.save = save;
 					vm.selectChampion = selectChampion;
 					vm.sortableOptions = {};
@@ -74,7 +76,16 @@
 					}
 					
 					function selectChampion(champion) {
-						champion.selected = !champion.selected;
+						if(!champion.selected) {
+							if(vm.championNumber < vm.maxChampionNumber) {
+								champion.selected = true;
+								vm.championNumber++;
+							}
+						}
+						else {
+							champion.selected = false;
+							vm.championNumber--;
+						}
 					}
 					
 					function sortStart(e, ui) {
