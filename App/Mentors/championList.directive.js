@@ -10,7 +10,7 @@
 				scope: {
 					readOnly: "=?",
 					editMode: "=?",
-					selectedChampions: '=',
+					initialSelectedChampions: '=selectedChampions',
 					size: "@"
 				},
 				controllerAs: "list",
@@ -18,13 +18,14 @@
 					var vm = this;
 					
 					vm.cancel = cancel;
-					vm.championNumber = vm.selectedChampions.length;
+					vm.championNumber = vm.initialSelectedChampions.length;
 					vm.edit = edit;
 					vm.editChampions = [];
 					vm.filterString = "";
 					vm.maxChampionNumber = 10;
 					vm.save = save;
 					vm.selectChampion = selectChampion;
+					vm.selectedChampions = [];
 					vm.sortableOptions = {};
 					
 					activate();
@@ -44,17 +45,19 @@
 						
 						if(!vm.readOnly) {
 							vm.editChampions = championListService.getAllChampions();
-							championListService.setAllChampionsSelected(vm.selectedChampions);
+							championListService.setAllChampionsSelected(vm.initialSelectedChampions);
+							championListService.setSelectedChampions(vm.selectedChampions);
 						}
 						
 						vm.sortableOptions = {
-						 disabled: vm.readOnly,
-						 helper: 'clone', 
-						 opacity: 0.5,
-						 scroll: false,
-						 start: sortStart,
-						 cursor: 'move'
-					};
+							disabled: vm.readOnly,
+							helper: 'clone', 
+							opacity: 0.5,
+							scroll: false,
+							start: sortStart,
+							cursor: 'move',
+							stop: sortStop
+						};
 					}
 					
 					function edit() {
@@ -93,6 +96,10 @@
 						
 						//Fix for inconsistent reordering of champions
 						$(e.target).data("ui-sortable").floating = true;
+					}
+					
+					function sortStop() {
+						championListService.sortChampions(vm.selectedChampions);
 					}
 				}
 			};

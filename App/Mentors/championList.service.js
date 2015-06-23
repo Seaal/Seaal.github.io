@@ -9,7 +9,8 @@
 			filterChampions: filterChampions,
 			getAllChampions: getAllChampions,
 			setSelectedChampions : setSelectedChampions,
-			setAllChampionsSelected: setAllChampionsSelected
+			setAllChampionsSelected: setAllChampionsSelected,
+			sortChampions: sortChampions
 		}
 		
 		var champions = [];
@@ -51,6 +52,27 @@
 					selectedChampions.push(champions[i]);
 				}
 			}
+			
+			selectedChampions.sort(championSortFunction);
+		}
+		
+		function championSortFunction(a, b) {
+			
+			if(typeof a.order == "number" && typeof b.order == "undefined") {
+				return -1;
+			}		
+			 else if(typeof a.order == "undefined" && typeof b.order == "number") {
+				return 1;
+			} else if(typeof a.order == "undefined" && typeof b.order == "undefined") {
+				return 0;
+			}	
+			else if(a.order < b.order) {
+				return -1;
+			} else if(a.order > b.order) {
+				return 1;
+			} else {
+				return 0;
+			}
 		}
 		
 		function setAllChampionsSelected(selectedChampions) {
@@ -65,6 +87,12 @@
 						break;
 					}
 				}				
+			}
+		}
+		
+		function sortChampions(selectedChampions) {
+			for(var i=0; i < selectedChampions.length; i++ ) {
+				selectedChampions[i].order = i;
 			}
 		}
 	}
