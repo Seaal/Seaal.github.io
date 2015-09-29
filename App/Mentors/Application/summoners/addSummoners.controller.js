@@ -49,7 +49,7 @@
 			vm.errors.length = 0;
 			
 			if(name == "") {
-				vm.errors.push({ message: 'Summoner Name cannot be empty.' });
+				vm.errors.push({ message: 'Account Name cannot be empty.' });
 			}
 			
 			if(region === "") {
