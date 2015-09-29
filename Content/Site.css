@@ -9,11 +9,8 @@
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
 textarea {
-    max-width: 280px;
+    resize: none;
 }
 
 .mentor-card {
@@ -341,4 +338,8 @@ textarea {
 
 .resize-horizontal {
     cursor: move;
+}
+
+textarea.resize-vertical {
+    resize: vertical;
 }
