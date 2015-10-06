@@ -5,12 +5,12 @@
 		<label class="col-sm-2 control-label">Specialities</label>
 		<div class="col-sm-6">
 			<div class="input-group" ng-repeat="speciality in application.specialities">
-				<input type="text" class="form-control" ng-model="speciality.text" />
+				<input type="text" class="form-control" ng-model="speciality.text" required />
 				<span class="input-group-btn">
 					<button class="btn btn-danger" type="button" ng-click="application.removeSpeciality($index);"><i class="fa fa-lg fa-times"></i></button>
 				</span>
 			</div>
-			<a class="no-select" ng-show="application.specialities.length < application.maxSpecialityNumber" ng-click="application.addSpeciality();">Add Another..</a>
+			<button type="button" class="btn btn-link" ng-show="application.specialities.length < application.maxSpecialityNumber" ng-click="application.addSpeciality();">Add Another..</button>
 		</div>
 		<div class="col-sm-4">
 			<span class="help-block">What you believe makes you stand out from other mentors in what you are capable of teaching.</span>
@@ -20,7 +20,7 @@
 	<div class="form-group">
 		<label for="mentorSummary" class="col-sm-2 control-label">Mentor Summary</label>
 		<div class="col-sm-6">
-			<textarea class="form-control" id="mentorSummary" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary"></textarea>
+			<textarea class="form-control" id="mentorSummary" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary" required></textarea>
 		</div>
 		<div class="col-sm-4">
 			<span id="mentorSummaryHelp" class="help-block">A small worded summary of you as a mentor, and what you are capable of teaching.</span>
