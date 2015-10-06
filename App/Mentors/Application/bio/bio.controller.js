@@ -11,6 +11,7 @@
 		vm.summary = "";
 		vm.aboutMentor = "";
 		vm.maxSummaryLength = 500;
+		vm.maxSpecialityNumber = 5;
 		vm.addSpeciality = addSpeciality;
 		vm.removeSpeciality = removeSpeciality;
 		
