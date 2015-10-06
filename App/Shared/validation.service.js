@@ -35,7 +35,7 @@
 		}
 		
 		function maxLength(length, type) {
-			if(inputData.length < length) {
+			if(inputData.length > length) {
 				errorMessages.push("Your " + fieldName + " cannot be exceed " + length + " " + type + "!");
 			}
 			
@@ -44,7 +44,7 @@
 		
 		function result() {
 			return {
-				valid: errorMessages.length > 0,
+				valid: !(errorMessages.length > 0),
 				errorMessages: errorMessages
 			}
 		}
