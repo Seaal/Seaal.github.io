@@ -7,7 +7,8 @@
 			"ui.bootstrap",
 			"ui.select",
 			"ui.sortable",
-			"LocalStorageModule"
+			"LocalStorageModule",
+			"seaal"
 		]);
 	
 })();

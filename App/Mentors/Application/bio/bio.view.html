@@ -17,10 +17,10 @@
 			<span class="help-block">(Currently <b>{{application.specialities.length}}</b> out of {{::application.maxSpecialityNumber}} max)</span>
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" ng-class="{'has-error': application.errors.summary }">
 		<label for="mentorSummary" class="col-sm-2 control-label">Mentor Summary</label>
 		<div class="col-sm-6">
-			<textarea class="form-control" id="mentorSummary" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary" required></textarea>
+			<textarea class="form-control" id="mentorSummary" ng-blur="application.validateSummary();" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary"></textarea>
 		</div>
 		<div class="col-sm-4">
 			<span id="mentorSummaryHelp" class="help-block">A small worded summary of you as a mentor, and what you are capable of teaching.</span>

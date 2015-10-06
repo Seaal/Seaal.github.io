@@ -4,16 +4,18 @@
 		.module("eloHeaven.mentors")
 		.controller("bioController", BioController);
 		
-	function BioController($scope, applicationService) {
+	function BioController($scope, applicationService, validationService) {
 		var vm = this;
 		
-		vm.specialities = [{ text: "" }];
+		vm.specialities = [];
 		vm.summary = "";
 		vm.aboutMentor = "";
 		vm.maxSummaryLength = 500;
 		vm.maxSpecialityNumber = 5;
 		vm.addSpeciality = addSpeciality;
 		vm.removeSpeciality = removeSpeciality;
+		vm.validateSummary = validateSummary;
+		vm.errors = {};
 		
 		$scope.$on("$stateChangeStart", saveChanges);
 		
@@ -26,6 +28,16 @@
 				vm.specialities = bioData.specialities;
 				vm.summary = bioData.summary;
 				vm.aboutMentor = bioData.aboutMentor;
+			}
+			
+			vm.errors = {
+				specialities: ["", "", "", "", ""],
+				summary: "",
+				aboutMentor: ""
+			}
+			
+			if(vm.specialities.length == 0) {
+				vm.specialities.push({ text: "" });
 			}
 		}
 		
@@ -41,9 +53,24 @@
 			}
 		}
 		
+		function validateSummary() {
+			var result = validationService.input(vm.summary, "Mentor Summary")
+										  .required()
+										  .maxLength(500, "characters")
+										  .result();
+		}
+		
 		function saveChanges() {
+			var specialities = [];
+			
+			for(var i=0;i<vm.specialities.length;i++) {
+				if(vm.specialities[i].text.trim()) {
+					specialities.push(vm.specialities[i]);
+				}
+			}
+			
 			var bioData = {
-				specialities: vm.specialities,
+				specialities: specialities,
 				summary: vm.summary,
 				aboutMentor: vm.aboutMentor
 			};
