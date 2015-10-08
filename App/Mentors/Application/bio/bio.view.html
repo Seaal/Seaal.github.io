@@ -1,11 +1,11 @@
 <h3>Bio</h3>
 
-<form class="form-horizontal">
+<form name="application.form" class="form-horizontal">
 	<div class="form-group multi-input-group">
 		<label class="col-sm-2 control-label">Specialities</label>
 		<div class="col-sm-6">
-			<div class="input-group" ng-repeat="speciality in application.specialities">
-				<input type="text" class="form-control" ng-model="speciality.text" required />
+			<div class="input-group" ng-class="{'has-error': application.form.speciality{{$index}}.$touched && application.form.speciality{{$index}}.$invalid }" ng-repeat="speciality in application.specialities">
+				<input type="text" name="speciality{{$index}}" class="form-control" ng-model="speciality.text" required />
 				<span class="input-group-btn">
 					<button class="btn btn-danger" type="button" ng-click="application.removeSpeciality($index);"><i class="fa fa-lg fa-times"></i></button>
 				</span>
@@ -17,10 +17,10 @@
 			<span class="help-block">(Currently <b>{{application.specialities.length}}</b> out of {{::application.maxSpecialityNumber}} max)</span>
 		</div>
 	</div>
-	<div class="form-group" ng-class="{'has-error': application.errors.summary }">
+	<div class="form-group" ng-class="{'has-error': application.form.summary.$touched && application.form.summary.$invalid }">
 		<label for="mentorSummary" class="col-sm-2 control-label">Mentor Summary</label>
 		<div class="col-sm-6">
-			<textarea class="form-control" id="mentorSummary" ng-blur="application.validateSummary();" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary"></textarea>
+			<textarea class="form-control" name="summary" id="mentorSummary" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary" required></textarea>
 		</div>
 		<div class="col-sm-4">
 			<span id="mentorSummaryHelp" class="help-block">A small worded summary of you as a mentor, and what you are capable of teaching.</span>
