@@ -5,14 +5,14 @@
 		<label class="col-sm-2 control-label">Specialities</label>
 		
 		<div class="col-sm-6" ng-form="application.specialityForm">
-			<div ng-repeat="speciality in application.specialities" ng-class="{'has-error': application.specialityForm.speciality{{$index}}.$touched && application.specialityForm.speciality{{$index}}.$invalid }">
+			<div ng-repeat="speciality in application.specialities" ng-class="{'has-error': (application.submitted || application.specialitySubmitted || application.specialityForm.speciality{{$index}}.$touched) && application.specialityForm.speciality{{$index}}.$invalid }">
 				<div class="input-group">
 					<input type="text" name="speciality{{$index}}" class="form-control" ng-model="speciality.text" required />
 					<span class="input-group-btn">
 						<button class="btn btn-danger" type="button" ng-click="application.removeSpeciality($index);"><i class="fa fa-lg fa-times"></i></button>
 					</span>
 				</div>
-				<span class="help-block" ng-show="(vm.submitted || application.specialityForm.speciality{{$index}}.$touched) && application.specialityForm.speciality{{$index}}.$invalid"><i class="fa fa-lg fa-exclamation-circle"></i> Specialities cannot be empty.</span>
+				<span class="help-block" ng-show="(application.submitted || application.specialitySubmitted || application.specialityForm.speciality{{$index}}.$touched) && application.specialityForm.speciality{{$index}}.$invalid"><i class="fa fa-lg fa-exclamation-circle"></i> Specialities cannot be empty.</span>
 			</div>
 			<button type="button" class="btn btn-link" ng-show="application.specialities.length < application.maxSpecialityNumber" ng-click="application.addSpeciality();">Add Another..</button>
 		</div>
@@ -23,12 +23,12 @@
 		</div>
 	</div>
 	
-	<div class="form-group" ng-class="{'has-error': application.form.summary.$touched && application.form.summary.$invalid}">
+	<div class="form-group" ng-class="{'has-error': (application.submitted || application.form.summary.$touched) && application.form.summary.$invalid}">
 		<label for="mentorSummary" class="col-md-2 control-label">Mentor Summary</label>
 		
 		<div class="col-md-6">
 			<textarea class="form-control" name="summary" id="mentorSummary" aria-describedby="mentorSummaryHelp" rows="3" maxlength="{{::application.maxSummaryLength}}" ng-model="application.summary" required></textarea>
-			<span class="help-block" ng-show="(vm.submitted || application.form.summary.$touched) && application.form.summary.$error.required"><i class="fa fa-lg fa-exclamation-circle"></i> The Mentor Summary is required.</span>
+			<span class="help-block" ng-show="(application.submitted || application.form.summary.$touched) && application.form.summary.$error.required"><i class="fa fa-lg fa-exclamation-circle"></i> The Mentor Summary is required.</span>
 		</div>
 		
 		<div class="col-md-4 help-only">

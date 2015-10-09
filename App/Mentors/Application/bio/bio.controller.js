@@ -15,6 +15,7 @@
 		vm.addSpeciality = addSpeciality;
 		vm.removeSpeciality = removeSpeciality;
 		vm.submitted = false;
+		vm.specialitySubmitted = false;
 		vm.errors = {};
 		
 		$scope.$on("$stateChangeStart", onStateChange);
@@ -44,6 +45,9 @@
 		function addSpeciality() {
 			if(vm.specialityForm.$valid) {
 				vm.specialities.push({ text: "" });
+				vm.specialitySubmitted = false;
+			} else {
+				vm.specialitySubmitted = true;
 			}
 		}
 		
