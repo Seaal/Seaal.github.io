@@ -360,3 +360,7 @@ textarea.resize-vertical {
 .multi-input-group .input-group {
     margin-bottom: 10px;
 }
+
+.help-only span {
+    color: #737373 !important;
+}

@@ -4,7 +4,7 @@
 		.module("eloHeaven.mentors")
 		.controller("bioController", BioController);
 		
-	function BioController($scope, applicationService, validationService) {
+	function BioController($scope, applicationService) {
 		var vm = this;
 		
 		vm.specialities = [];
@@ -14,10 +14,10 @@
 		vm.maxSpecialityNumber = 5;
 		vm.addSpeciality = addSpeciality;
 		vm.removeSpeciality = removeSpeciality;
-		vm.validateSummary = validateSummary;
+		vm.submitted = false;
 		vm.errors = {};
 		
-		$scope.$on("$stateChangeStart", saveChanges);
+		$scope.$on("$stateChangeStart", onStateChange);
 		
 		activate();
 		
@@ -42,7 +42,9 @@
 		}
 		
 		function addSpeciality() {
-			vm.specialities.push({ text: "" });
+			if(vm.specialityForm.$valid) {
+				vm.specialities.push({ text: "" });
+			}
 		}
 		
 		function removeSpeciality(index) {
@@ -53,29 +55,27 @@
 			}
 		}
 		
-		function validateSummary() {
-			var result = validationService.input(vm.summary, "Mentor Summary")
-										  .required()
-										  .maxLength(500, "characters")
-										  .result();
+		function onStateChange(event, toState) {
+			if(toState.name == applicationService.getNextStep(applicationService.getStepNumber("apply.bio")) && !vm.form.$valid) {
+				event.preventDefault();
+				vm.submitted = true;
+			} else {							
+				saveChanges();
+			}
 		}
 		
 		function saveChanges() {
-			var specialities = [];
-			
-			for(var i=0;i<vm.specialities.length;i++) {
-				if(vm.specialities[i].text.trim()) {
-					specialities.push(vm.specialities[i]);
-				}
-			}
-			
 			var bioData = {
-				specialities: specialities,
+				specialities: vm.specialities,
 				summary: vm.summary,
 				aboutMentor: vm.aboutMentor
 			};
 			
 			applicationService.saveStepData("bio", bioData);
+		}
+		
+		function nextStep() {
+			
 		}
 	}
 	
