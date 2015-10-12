@@ -1,6 +1,4 @@
 ﻿(function () {
     angular
-        .module("seaal", [
-            "angularMoment"
-        ]);
+        .module("seaal", []);
 })();

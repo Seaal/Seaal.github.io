@@ -8,7 +8,8 @@
             "ui.router",
             "seaal",
             "ngAnimate",
-            "toastr"
+            "toastr",
+            "angularMoment"
         ]);
 
 })();
