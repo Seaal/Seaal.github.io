@@ -21,8 +21,8 @@
 				"",
 				"apply.terms",
 				"apply.summoners",
-				"apply.basicInfo",
 				"apply.availability",
+				"apply.basicInfo",
 				"apply.bio",
 				"apply.confirmation"
 			];
