@@ -1,4 +1,2 @@
-<select id="timezoneSelect">
-	<option value="aa">Hello</option>
-	<option value="HellO">You</option>
+<select id="timezoneSelect" ng-model="vm.selectedTimezone" ng-options="timezone.id as timezone.name for timezone in vm.timezones">
 </select>

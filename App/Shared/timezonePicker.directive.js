@@ -21,7 +21,9 @@
 		return directive;
 		
 		function controller() {
+			var vm = this;
 			
+			vm.timezones = moment.tz.names();
 		}
 		
 		function link(scope, element, attrs) {

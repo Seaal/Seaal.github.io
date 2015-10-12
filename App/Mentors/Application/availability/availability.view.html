@@ -5,8 +5,7 @@
 		<label for="timezoneSelect" class="col-md-2 control-label">Select your Timezone</label>
 		
 		<div class="col-md-6">
-			<seaal-timezone-picker></seaal-timezone-picker>
-			<span class="help-block" ng-show="(application.submitted || application.form.summary.$touched) && application.form.summary.$error.required"><i class="fa fa-lg fa-exclamation-circle"></i> The Mentor Summary is required.</span>
+			<seaal-timezone-picker selected-timezone="application.timezone"></seaal-timezone-picker>
 		</div>
 		
 		<div class="col-md-4 help-only">
@@ -18,15 +17,16 @@
 		<label for="timezoneSelect" class="col-md-2 control-label">Availability</label>
 		
 		<div class="col-md-6">
-			<select class="form-control">
-				<option value="0">Sporadically</option>
-				<option value="1">At different but consistent times</option>
-				<option value="2">At the same time every day</option>
+			<select class="form-control" ng-model="application.availability" ng-options="option.id as option.name for option in application.availabilityOptions">
+				<option value="">Please Select..</option>
 			</select>
 		</div>
 		
 		<div class="col-md-4 help-only">
 			<span id="timezoneSelectHelp" class="help-block">Select the most appropriate availability.</span>
+			<span class="help-block" ng-show="application.availability === 1">Sporadically</span>
+			<span class="help-block" ng-show="application.availability === 2">Same time every day</span>
+			<span class="help-block" ng-show="application.availability === 3"></span>
 		</div>
 	</div>
 	
@@ -34,19 +34,9 @@
 		<label for="timezoneSelect" class="col-md-2 control-label">Contact Preferences</label>
 		
 		<div class="col-md-6">
-			<div class="checkbox">
+			<div class="checkbox" ng-repeat="preference in application.contactPreferences">
 				<label>
-					<input type="checkbox" /> In-Game PM
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" /> TeamSpeak PM
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" /> Enjin PM
+					<input type="checkbox" ng-selected="preference.selected" /> {{preference.name}}
 				</label>
 			</div>
 		</div>
