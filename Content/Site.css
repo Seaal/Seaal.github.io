@@ -364,3 +364,14 @@ textarea.resize-vertical {
 .help-only span {
     color: #737373 !important;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.form-group .checkbox > label {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

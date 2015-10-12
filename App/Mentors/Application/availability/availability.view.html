@@ -1,1 +1,58 @@
 <h3>Availability to Mentor</h3>
+
+<form name="application.form" class="form-horizontal">
+	<div class="form-group" ng-class="{'has-error': (application.submitted || application.form.summary.$touched) && application.form.summary.$invalid}">
+		<label for="timezoneSelect" class="col-md-2 control-label">Select your Timezone</label>
+		
+		<div class="col-md-6">
+			<seaal-timezone-picker></seaal-timezone-picker>
+			<span class="help-block" ng-show="(application.submitted || application.form.summary.$touched) && application.form.summary.$error.required"><i class="fa fa-lg fa-exclamation-circle"></i> The Mentor Summary is required.</span>
+		</div>
+		
+		<div class="col-md-4 help-only">
+			<span id="timezoneSelectHelp" class="help-block">Please ensure you are on the correct timezone. This is important for scheduling mentoring sessions.</span>
+		</div>
+	</div>
+	
+	<div class="form-group" ng-class="{'has-error': (application.submitted || application.form.summary.$touched) && application.form.summary.$invalid}">
+		<label for="timezoneSelect" class="col-md-2 control-label">Availability</label>
+		
+		<div class="col-md-6">
+			<select class="form-control">
+				<option value="0">Sporadically</option>
+				<option value="1">At different but consistent times</option>
+				<option value="2">At the same time every day</option>
+			</select>
+		</div>
+		
+		<div class="col-md-4 help-only">
+			<span id="timezoneSelectHelp" class="help-block">Select the most appropriate availability.</span>
+		</div>
+	</div>
+	
+	<div class="form-group" ng-class="{'has-error': (application.submitted || application.form.summary.$touched) && application.form.summary.$invalid}">
+		<label for="timezoneSelect" class="col-md-2 control-label">Contact Preferences</label>
+		
+		<div class="col-md-6">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" /> In-Game PM
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" /> TeamSpeak PM
+				</label>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" /> Enjin PM
+				</label>
+			</div>
+		</div>
+		
+		<div class="col-md-4 help-only">
+			<span id="timezoneSelectHelp" class="help-block">Select how you would like potential mentee's to contact you.</span>
+		</div>
+	</div>
+</form>
