@@ -18,7 +18,7 @@
 		
 		return directive;
 		
-		function controller() {
+		function controller(jstz, timezoneData) {
 			var vm = this;
 			
 			if(!vm.selectedTimezone) {
@@ -32,7 +32,7 @@
 				searchField: 'name'
 			};
 			
-			vm.timezones = moment.tz.names();
+			vm.timezones = timezoneData;
 		}
 	}
 	
