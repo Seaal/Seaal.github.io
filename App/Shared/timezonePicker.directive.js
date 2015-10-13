@@ -24,8 +24,8 @@
 			vm.selectConfig = {
 				valueField: 'id',
 				labelField: 'name',
-				delimiter: '|',
-				maxItems: 1
+				maxItems: 1,
+				searchField: 'name'
 			};
 			
 			vm.timezones = moment.tz.names();
