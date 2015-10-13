@@ -6,7 +6,7 @@
 		
 		<div class="col-md-6">
 			<seaal-timezone-picker selected-timezone="application.timezone"></seaal-timezone-picker>
-			<span class="help-block">The Time for the selected timezone is {{application.currentTime | amTimezone:application.timezone | amDateFormat: 'LTS' }}.</span>
+			<span class="help-block">The time for the selected timezone is {{application.currentTime | amTimezone:application.timezone | amDateFormat: 'LTS' }}.</span>
 		</div>
 		
 		<div class="col-md-4 help-only">
@@ -25,9 +25,9 @@
 		
 		<div class="col-md-4 help-only">
 			<span id="timezoneSelectHelp" class="help-block">Select the most appropriate availability.</span>
-			<span class="help-block" ng-show="application.availability === 1">Sporadically</span>
-			<span class="help-block" ng-show="application.availability === 2">Same time every day</span>
-			<span class="help-block" ng-show="application.availability === 3"></span>
+			<span class="help-block" ng-show="application.availability === 1">Choose this option if you will not be available at anytime consistently. Potential Mentees will be told to contact you to arrange a mentoring session.</span>
+			<span class="help-block" ng-show="application.availability === 2">Choose this option if you will be available for mentoring at the same every day.</span>
+			<span class="help-block" ng-show="application.availability === 3">Choose this option if you will be available at the same times every week, but these times are different on each day.</span>
 		</div>
 	</div>
 	
