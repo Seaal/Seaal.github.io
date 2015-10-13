@@ -1,2 +1,1 @@
-<select id="timezoneSelect" ng-model="vm.selectedTimezone" ng-options="timezone.id as timezone.name for timezone in vm.timezones">
-</select>
+<angular-selectize config="vm.selectConfig" options="vm.timezones" ng-model="vm.selectedTimezone"></angular-selectize>

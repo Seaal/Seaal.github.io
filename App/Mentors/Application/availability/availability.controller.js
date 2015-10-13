@@ -7,8 +7,6 @@
 		function AvailabilityController() {
 			var vm = this;
 			
-			vm.timezone = 2;
-			
 			vm.availabilityOptions = [
 				{ id: 1, name: "Sporadic" },
 				{ id: 2, name: "The same time every day"},

@@ -1,4 +1,6 @@
 ﻿(function () {
     angular
-        .module("seaal", []);
+        .module("seaal", [
+            "angularSelectize"
+        ]);
 })();
