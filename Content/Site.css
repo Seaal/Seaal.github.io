@@ -375,3 +375,8 @@ textarea.resize-vertical {
     -ms-user-select: none;
     user-select: none;
 }
+
+.time-input {
+    display: inline-block;
+    width: 75px;
+}
