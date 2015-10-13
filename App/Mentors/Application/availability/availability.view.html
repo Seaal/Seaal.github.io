@@ -6,6 +6,7 @@
 		
 		<div class="col-md-6">
 			<seaal-timezone-picker selected-timezone="application.timezone"></seaal-timezone-picker>
+			<span class="help-block">The Time for the selected timezone is {{application.currentTime | amTimezone:application.timezone | amDateFormat: 'LTS' }}.</span>
 		</div>
 		
 		<div class="col-md-4 help-only">

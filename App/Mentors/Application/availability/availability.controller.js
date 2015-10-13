@@ -4,8 +4,14 @@
 		.module("eloHeaven.mentors")
 		.controller("availabilityController", AvailabilityController);
 		
-		function AvailabilityController() {
+		function AvailabilityController($interval) {
 			var vm = this;
+			
+			vm.currentTime = new Date();
+			
+			$interval(function() {
+				vm.currentTime = new Date();
+			}, 1000);
 			
 			vm.availabilityOptions = [
 				{ id: 1, name: "Sporadic" },
