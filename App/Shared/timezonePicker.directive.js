@@ -21,8 +21,12 @@
 		function controller() {
 			var vm = this;
 			
+			if(!vm.selectedTimezone) {
+				vm.selectedTimezone = jstz.determine().name();
+			}
+			
 			vm.selectConfig = {
-				valueField: 'id',
+				valueField: 'name',
 				labelField: 'name',
 				maxItems: 1,
 				searchField: 'name'

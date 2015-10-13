@@ -247,7 +247,7 @@
 
 		for (i in names) {
 			if (names.hasOwnProperty(i) && (zones[i] || zones[links[i]]) && names[i]) {
-				out.push({ id: i, name: names[i]});
+				out.push({ name: names[i] });
 			}
 		}
 
