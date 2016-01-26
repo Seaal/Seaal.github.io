@@ -11,6 +11,11 @@
 				url: "/mentors/search",
 				templateUrl: "App/Mentors/search.view.html",
 				controller: "searchController as search"
-			});			
+			})
+            .state("inhouses", {
+                url: "/inhouses/",
+                templateUrl: "App/Inhouses/inhouse.view.html",
+                controller: "inhouseController as inhouse"
+            });			
 	}
 })();

@@ -26,13 +26,16 @@ a {
     user-select: none;
 }
 
-.mentor-card {
+.card {
     display: inline-block;
     border-color: #333;
     background-color: #222;
     color: #9d9d9d;
-    cursor: pointer;
     margin-bottom: 10px;
+}
+
+.mentor-card {
+    cursor: pointer;
 }
     
     .mentor-card:hover {
@@ -78,6 +81,35 @@ a {
 
         .mentor-card ul > li:last-child {
         margin-right: 0;
+    }
+
+
+.player-card {
+    display: inline-block;
+    width: 300px;
+}
+    
+    .player-card .information {
+        vertical-align: top;
+        display: inline-block;
+        margin-left: 10px;
+        width: 190px;
+    }
+    
+        .player-card .information p {
+            margin: 10px 0 0;
+        }
+        
+        .player-card .information h3 {
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        
+    .player-card .close-button {
+        position: absolute;
+        left: 288px;
+        top: 4px;
     }
 
 .image-group {
@@ -379,4 +411,14 @@ textarea.resize-vertical {
 .time-input {
     display: inline-block;
     width: 75px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: #6a6a6a;
+}
+
+.icon-button:hover {
+    color: #9d9d9d;
 }
