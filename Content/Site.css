@@ -422,3 +422,19 @@ textarea.resize-vertical {
 .icon-button:hover {
     color: #9d9d9d;
 }
+
+.team-right div {
+    float: right !important;
+}
+
+.team-title {
+    font-weight: bold;
+}
+
+.team-red {
+    color: #cb2124;
+}
+
+.team-blue {
+    color: #2747e8;
+}
