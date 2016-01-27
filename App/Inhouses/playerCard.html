@@ -3,8 +3,10 @@
         <div class="panel-body" ng-if="!card.confirmed">
             <img src="images/unknown-summoner.png" class="image-medium" alt="Unknown" />
             <div class="information">
-                <input type="text" ng-model="card.player.name" class="form-control" placeholder="Enter Player Name..." ng-blur="card.validatePlayer(card.player);" />
-                <p class="text-danger">{{card.errorMessage}}</p>
+                <form ng-submit="card.validatePlayer(card.player);">
+                    <input type="text" ng-model="card.player.name" class="form-control" placeholder="Enter Player Name..." ng-blur="card.validatePlayer(card.player);" />
+                    <p class="text-danger">{{card.errorMessage}}</p>
+                </form>
             </div>
         </div>
         <div class="panel-body" ng-if="card.confirmed">

@@ -27,12 +27,20 @@
             vm.confirmedSummoner = {};
             vm.errorMessage = "";
             
+            var lastSearch = "";
+            
             function validatePlayer(player) {
                 if(!player.name) {
                     return;
                 }
                 
+                if(player.name == lastSearch) {
+                    return;
+                }
+                
                 vm.errorMessage = "";
+                
+                lastSearch = player.name;
                 
                 inhouseService.addPlayer(player.name).then(function(player) {
                     vm.player.id = player.id;
