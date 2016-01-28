@@ -85,8 +85,8 @@ a {
 
 
 .player-card {
-    display: inline-block;
     width: 300px;
+    position: relative;
 }
     
     .player-card .information {
@@ -108,8 +108,8 @@ a {
         
     .player-card .close-button {
         position: absolute;
-        left: 288px;
-        top: 4px;
+        left: 276px;
+        top: -1px;
     }
 
 .image-group {
