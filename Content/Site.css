@@ -32,6 +32,7 @@ a {
     background-color: #222;
     color: #9d9d9d;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .mentor-card {
@@ -108,8 +109,12 @@ a {
         
     .player-card .close-button {
         position: absolute;
-        left: 288px;
-        top: 4px;
+        left: 196px;
+        top: -16px;
+    }
+    
+    .player-card.swapping {
+        margin-left: 60px;
     }
 
 .image-group {

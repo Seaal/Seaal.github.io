@@ -21,7 +21,6 @@
         function controller(inhouseService) {
             var vm = this;
             
-            vm.confirmed = false;
             vm.validatePlayer = validatePlayer;
             vm.removePlayer = removePlayer;
             vm.confirmedSummoner = {};
@@ -47,8 +46,7 @@
                     vm.player.name = player.name;
                     vm.player.rank = player.rank;
                     vm.player.region = player.region;
-                    
-                    vm.confirmed = true;
+                    vm.player.status = player.status;
                 }, function(error) {
                     vm.errorMessage = error;
                 });
@@ -60,8 +58,9 @@
                    vm.player.name = "";
                    vm.player.rank = "";
                    vm.player.region = "";
+                   vm.player.status = "empty";
                    
-                   vm.confirmed = false; 
+                   lastSearch = "";
                 });
             }
         }

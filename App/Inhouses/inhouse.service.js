@@ -7,7 +7,8 @@
     function inhouseService($q, $timeout) {
         return {
             addPlayer: addPlayer,
-            removePlayer: removePlayer
+            removePlayer: removePlayer,
+            balanceTeams: balanceTeams
         };
         
         function addPlayer(playerName) {
@@ -20,7 +21,8 @@
                         id: 1,
                         name: playerName,
                         rank: "Silver III",
-                        region: "NA"
+                        region: "NA",
+                        status: "confirmed"
                     });
                 }
                 else {
@@ -37,6 +39,30 @@
             $timeout(function() {
                 deferred.resolve();
             }, 100);
+            
+            return deferred.promise;
+        }
+        
+        function balanceTeams(blueTeam, redTeam) {
+            var deferred = $q.defer();
+            
+            $timeout(function() {
+                var swaps = {
+                    redTeam: [],
+                    blueTeam: []
+                };
+                
+                var numberOfSwaps = Math.floor(Math.random() * 3) + 1;
+                
+                for(var i=0; i<numberOfSwaps;i++) {
+                    var randomPlayer = Math.floor(Math.random() * 5) + 1;
+                    
+                    swaps.redTeam.push(redTeam[randomPlayer]);
+                    swaps.blueTeam.push(blueTeam[randomPlayer]);
+                }
+                
+                deferred.resolve(swaps);
+            }, 500);
             
             return deferred.promise;
         }
