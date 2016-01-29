@@ -4,14 +4,16 @@
     <div class="col-sm-6 col-xs-12">
         <h2 class="team-title team-blue">Blue Team</h2>
         
-        <eh-player-card ng-repeat="player in inhouse.blueTeamPlayers" player="player"></eh-player-card>
+        <eh-player-card ng-repeat="player in inhouse.blueTeam" player="player"></eh-player-card>
     </div>
     <div class="col-sm-6 col-xs-12 team-right">
         <h2 class="team-title team-red text-right">Red Team</h2>
         
-        <eh-player-card ng-repeat="player in inhouse.redTeamPlayers" player="player"></eh-player-card>
+        <eh-player-card ng-repeat="player in inhouse.redTeam" player="player"></eh-player-card>
     </div>
 </div>
 
 
 <button class="btn btn-primary center-block" ng-disabled="!inhouse.allConfirmed" ng-hide="inhouse.balancing" ng-click="inhouse.balanceTeams();">Balance Teams</button>
+<button class="btn btn-success center-block" ng-show="inhouse.balancing" ng-click="inhouse.swapPlayers();">Swap Players</button>
+<button class="btn btn-danger center-block" ng-show="inhouse.balancing" ng-click="inhouse.cancelSwap();">Cancel</button>

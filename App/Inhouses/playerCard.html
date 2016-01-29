@@ -11,7 +11,7 @@
         </div>
         <div class="panel-body" ng-if="card.player.status != 'empty'">
             <eh-league-picture size="medium" alt="{{card.player.name}}" summoner="card.player"></eh-league-picture>
-            <button class="icon-button close-button" ng-show="card.player.status == 'confirmed'" ng-click="card.removePlayer(card.player);"><i class="fa fa-close"></i></button>
+            <button class="icon-button status-icon" ng-show="card.player.status == 'confirmed'" ng-click="card.removePlayer(card.player);"><i class="fa fa-close"></i></button>
             <div class="information">
                 <h3>{{card.player.name}}</h3>
                 <span class="bold">{{card.player.rank}}</span>

@@ -8,9 +8,11 @@
         var vm = this;
         
         vm.playersPerTeam = 5;
-        vm.blueTeamPlayers = [];
-        vm.redTeamPlayers = [];
+        vm.blueTeam = [];
+        vm.redTeam = [];
         vm.balanceTeams = balanceTeams;
+        vm.cancelSwap = cancelSwap;
+        vm.swapPlayers = swapPlayers;
         vm.allConfirmed = false;
         vm.balancing = false;
         
@@ -18,23 +20,23 @@
         
         function activate() {
             for(var i=0;i<vm.playersPerTeam;i++) {
-                vm.blueTeamPlayers.push({
+                vm.blueTeam.push({
                     name: "",
                     status: "empty"
                 });
                 
-                vm.redTeamPlayers.push({
+                vm.redTeam.push({
                     name: "",
                     status: "empty"
                 });
             }
             
             $scope.$watch(angular.bind(vm, function() {
-                return this.blueTeamPlayers;
-            }), watchNoPlayersConfirmed(vm.redTeamPlayers), true);
+                return this.blueTeam;
+            }), watchNoPlayersConfirmed(vm.redTeam), true);
             $scope.$watch(angular.bind(vm, function() {
-                return this.redTeamPlayers;
-            }), watchNoPlayersConfirmed(vm.blueTeamPlayers), true);
+                return this.redTeam;
+            }), watchNoPlayersConfirmed(vm.blueTeam), true);
             
             function watchNoPlayersConfirmed(otherTeam) {
                 var watchFunction = function(newValue) {
@@ -64,29 +66,24 @@
         }
         
         function balanceTeams() {
-            inhouseService.balanceTeams(vm.blueTeamPlayers, vm.redTeamPlayers).then(function(swaps) {
-                for(var i=0; i < vm.playersPerTeam; i++) {
-                for(var j=0; j < swaps.blueTeam.length; j++) {
-                        vm.blueTeamPlayers[i].status = "swapping";
-                        continue;
-                    }
-                }
+            inhouseService.balanceTeams(vm.blueTeam, vm.redTeam).then(function(swaps) {
+                vm.blueTeam = swaps.blueTeam;
+                vm.redTeam = swaps.redTeam;
                 
-                vm.blueTeamPlayers[i].status = "locked";
-            }
-            
-            for(var i=0; i < vm.playersPerTeam; i++) {
-                for(var j=0; j < swaps.redTeam.length; j++) {
-                        vm.redTeamPlayers[i].status = "swapping";
-                        continue;
-                    }
-                }
-                
-                vm.redTeamPlayers[i].status = "locked";
-            }
-            
-            vm.balancing = true;
+                vm.balancing = true;
             });          
+        }
+        
+        function swapPlayers() {
+            
+        }
+        
+        function cancelSwap() {
+            for(var i=0; i< vm.playersPerTeam; i++) {
+                vm.blueTeam[i].status = "confirmed";
+                vm.redTeam[i].status = "confirmed";
+                vm.balancing = false;
+            }
         }
     }
     

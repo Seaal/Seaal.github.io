@@ -88,6 +88,7 @@ a {
 .player-card {
     width: 300px;
     position: relative;
+    transition: 500ms ease all;
 }
     
     .player-card .information {
@@ -107,7 +108,7 @@ a {
             font-size: 22px;
         }
         
-    .player-card .close-button {
+    .player-card .status-icon {
         position: absolute;
         left: 276px;
         top: -1px;
@@ -115,6 +116,13 @@ a {
     
     .player-card.swapping {
         margin-left: 60px;
+        background-color: #1b6941;
+        border-color: #2c7a52;
+    }
+    
+    .team-right .player-card.swapping {
+        margin-left: 0;
+        margin-right: 60px;
     }
 
 .image-group {

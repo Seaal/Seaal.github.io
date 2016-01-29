@@ -52,13 +52,20 @@
                     blueTeam: []
                 };
                 
-                var numberOfSwaps = Math.floor(Math.random() * 3) + 1;
-                
-                for(var i=0; i<numberOfSwaps;i++) {
-                    var randomPlayer = Math.floor(Math.random() * 5) + 1;
+                for(var i=0; i<5;i++) {
+                    var newBluePlayer = angular.copy(blueTeam[i]);
+                    var newRedPlayer = angular.copy(redTeam[i]);
                     
-                    swaps.redTeam.push(redTeam[randomPlayer]);
-                    swaps.blueTeam.push(blueTeam[randomPlayer]);
+                    if(Math.random() > 0.75) {
+                        newBluePlayer.status = "swapping";
+                        newRedPlayer.status = "swapping";
+                    } else {
+                        newBluePlayer.status = "locked";
+                        newRedPlayer.status = "locked";
+                    }
+                    
+                    swaps.blueTeam.push(newBluePlayer);
+                    swaps.redTeam.push(newRedPlayer);
                 }
                 
                 deferred.resolve(swaps);
