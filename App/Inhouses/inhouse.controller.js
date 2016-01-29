@@ -75,7 +75,12 @@
         }
         
         function swapPlayers() {
-            
+            inhouseService.swapPlayers(vm.blueTeam, vm.redTeam).then(function(swaps) {
+                vm.blueTeam = swaps.blueTeam;
+                vm.redTeam = swaps.redTeam;
+                
+                vm.balancing = false;
+            })
         }
         
         function cancelSwap() {
